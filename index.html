@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<div id="ver">Version: 2</div>
+<div id="ver">Version: 3</div>
 
     <button onclick="translateJson()">Lala</button>
     <textarea name="" id="textarea" cols="100" rows="30"></textarea>
@@ -47,8 +47,8 @@
                 targetLang +
                 '&jsonData=' +
                 JSON.stringify(data);
-                console.log("url",url);
-                return;
+//                 console.log("url",url);
+//                 return;
 //             let url="https://script.google.com/macros/s/AKfycbziAK4UqD_h2n6g_07GQrl2B3Fx-gt_N_LV0RokzavVHK3Kzv1RV0yOu_e-5okqxXpK/exec";
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -63,6 +63,11 @@
         }
         function translateJson() {
             let data = document.getElementById("textarea").value;
+            if(data==''){
+                data={
+                    "hello":"Hello",
+                    "world:"World"
+                }
             console.log("data",data);
             if(JSON.parse(data)){
                 getApi(data);
