@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<div id="ver">Version: 6</div>
+<div id="ver">Version: 7</div>
 
     <button onclick="translateJson()">Lala</button>
     <textarea name="" id="textarea" cols="100" rows="30"></textarea>
@@ -57,8 +57,8 @@
                     console.log(this);
                 }
             };
-            xhttp.open("get", url);
-            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.open("GET", url);
+          xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             xhttp.send();
         }
         function translateJson() {
