@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 600px;
+            height: 500px;
+            overflow-x: scroll;
+            background-color: red;
+
+        }
+
+        .div {
+            width: 700px;
+            height: 480px;
+            background-color: yellow;
+        }
+        #ver{
+        width:100%;
+        padding:10px;
+        background:red;
+        color:white;
+        font-size:18px;
+        text:align:center;
+        }
+    </style>
+</head>
+
+<body>
+<div id="ver">Version: 1</div>
+
+    <button onclick="translateJson()">Lala</button>
+    <textarea name="" id="textarea" cols="100" rows="30"></textarea>
+
+    <script>
+        function getApi(data) {
+            let sourceLang = 'en';
+            let targetLang = 'zh';
+            // var url =
+            //     'https://script.google.com/macros/s/AKfycbzHA8JWuPv4FrFoXqgblrh9WHFsgz21hpuJL5vugtmOv2R-6grsjiSYt68xbh7IteoR/exec?sl=' +
+            //     sourceLang +
+            //     '&tl=' +
+            //     targetLang +
+            //     '&jsonData=' +
+            //     JSON.stringify(data);
+            //     console.log("url",url);
+            //     return;
+            let url="https://script.google.com/macros/s/AKfycbziAK4UqD_h2n6g_07GQrl2B3Fx-gt_N_LV0RokzavVHK3Kzv1RV0yOu_e-5okqxXpK/exec";
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("responseAaya");
+                    console.log(this.onerror);
+                }
+            };
+            xhttp.open("post", url);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify({"lala":"hsuaihd"}));
+        }
+        function translateJson() {
+            let data = document.getElementById("textarea").value;
+            console.log("data",data);
+            if(JSON.parse(data)){
+                getApi(data);
+            }else{
+                alert("not a valid json")
+            }
+         
+        }
+
+
+
+
+
+
+
+        // function convertData() {
+            // let data = {
+            //     "hello": "Hello",
+            //     "lala": {
+            //         "world": "World",
+            //         "ala": {
+            //             "ggg": "gochtch"
+            //         }
+            //     }
+            // }
+            // let jsonToArrayData = extractKeyValueFromJson(data);
+            // console.log(jsonToArrayData);
+            // let arrayToJsonData = setArrayValueToObj(jsonToArrayData);
+            // console.log(arrayToJsonData);
+            // // getApi(jsonData);
+        // }
+        // function extractKeyValueFromJson(data) {
+        //     let arr = getKeyValueFromObject('', data);
+        //     return arr;
+        // }
+        // function getKeyValueFromObject(globalKey, data) {
+        //     let obj = [];
+        //     Object.keys(data).forEach((key) => {
+        //         let newKey = globalKey != '' ? globalKey + '.' : '';
+        //         if (typeof data[key] == 'object') {
+        //             obj.push(...getKeyValueFromObject(newKey + key, data[key]));
+        //         } else {
+        //             obj.push({ key: newKey + key, value: data[key] });
+        //         }
+        //     });
+        //     return obj;
+        // }
+        // function setArrayValueToObj(data) {
+        //     let obj = {};
+        //     data.forEach((el) => {
+        //         var schema = obj;  // a moving reference to internal objects within obj
+        //         var pList = el.key.split('.');
+        //         var len = pList.length;
+        //         for (var i = 0; i < len - 1; i++) {
+        //             var elem = pList[i];
+        //             if (!schema[elem]) schema[elem] = {}
+        //             schema = schema[elem];
+        //         }
+        //         schema[pList[len - 1]] = el.value;
+        //     })
+        //     return obj;
+        // }
+    </script>
+</body>
+
+</html>
