@@ -40,26 +40,26 @@
         function getApi(data) {
             let sourceLang = 'en';
             let targetLang = 'zh';
-            // var url =
-            //     'https://script.google.com/macros/s/AKfycbzHA8JWuPv4FrFoXqgblrh9WHFsgz21hpuJL5vugtmOv2R-6grsjiSYt68xbh7IteoR/exec?sl=' +
-            //     sourceLang +
-            //     '&tl=' +
-            //     targetLang +
-            //     '&jsonData=' +
-            //     JSON.stringify(data);
-            //     console.log("url",url);
-            //     return;
-            let url="https://script.google.com/macros/s/AKfycbziAK4UqD_h2n6g_07GQrl2B3Fx-gt_N_LV0RokzavVHK3Kzv1RV0yOu_e-5okqxXpK/exec";
+            var url =
+                'https://script.google.com/macros/s/AKfycbzHA8JWuPv4FrFoXqgblrh9WHFsgz21hpuJL5vugtmOv2R-6grsjiSYt68xbh7IteoR/exec?sl=' +
+                sourceLang +
+                '&tl=' +
+                targetLang +
+                '&jsonData=' +
+                JSON.stringify(data);
+                console.log("url",url);
+                return;
+//             let url="https://script.google.com/macros/s/AKfycbziAK4UqD_h2n6g_07GQrl2B3Fx-gt_N_LV0RokzavVHK3Kzv1RV0yOu_e-5okqxXpK/exec";
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     alert("responseAaya");
-                    console.log(this.onerror);
+                    console.log(this);
                 }
             };
-            xhttp.open("post", url);
+            xhttp.open("get", url);
             xhttp.setRequestHeader("Content-type", "application/json");
-            xhttp.send(JSON.stringify({"lala":"hsuaihd"}));
+            xhttp.send();
         }
         function translateJson() {
             let data = document.getElementById("textarea").value;
