@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<div id="ver">Version: 5</div>
+<div id="ver">Version: 6</div>
 
     <button onclick="translateJson()">Lala</button>
     <textarea name="" id="textarea" cols="100" rows="30"></textarea>
@@ -69,12 +69,12 @@
                     "world":"World"
                 }
             }
-            console.log("data",data);
-            if(JSON.parse(data)){
+            // console.log("data",data);
+            // if(JSON.parse(data)){
                 getApi(data);
-            }else{
-                alert("not a valid json")
-            }
+            // }else{
+            //     alert("not a valid json")
+            // }
          
         }
 
